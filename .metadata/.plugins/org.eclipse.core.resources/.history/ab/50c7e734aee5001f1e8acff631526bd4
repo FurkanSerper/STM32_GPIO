@@ -81,12 +81,6 @@ typedef struct
 	__vo uint32_t AFR[2];		/*	GPIO alternate function low register - high register	*/
 }GPIO_RgDef_t;
 
-/*
-//TODO Do the same for RCC
-typedef struct
-{
-
-}RCC_RegDef_t;*/
 
 /*  Peripheral Definition (Peripheral base addresses typecasted to xxx_RegDef_t	 */
 

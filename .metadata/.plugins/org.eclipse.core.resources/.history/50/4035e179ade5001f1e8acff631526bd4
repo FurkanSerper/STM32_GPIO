@@ -8,11 +8,7 @@
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 
-
-#include <stdio.h>
-
 #define __vo volatile
-
 /* Check the value from Table 5. Flash module organization in Reference Manual */
 #define FLASB_BASEADDR			0x08000000U		/* Flash Base Address */
 #define SRAM1_BASEADDR			0x20000000U     /* SRAM1 Base Address */
@@ -70,35 +66,19 @@
 
 typedef struct
 {
-	__vo uint32_t MODER;			/*  GPIO port mode register    								*/
-	__vo uint32_t OTYPER;		/*	GPIO port output type register							*/
-	__vo uint32_t OSPEEDR;		/*	GPIO port output speed register							*/
-	__vo uint32_t PUPDR;			/*	GPIO port pull-up/pull-down register					*/
-	__vo uint32_t IDR;			/*	GPIO port input data register							*/
-	__vo uint32_t ODR;			/*	GPIO port output data register							*/
-	__vo uint32_t BSRR;			/*	GPIO port bit set/reset register						*/
-	__vo uint32_t LCKR;			/*	GPIO port configuration lock register					*/
-	__vo uint32_t AFR[2];		/*	GPIO alternate function low register - high register	*/
+	uint32_t MODER;			/*  GPIO port mode register    								*/
+	uint32_t OTYPER;		/*	GPIO port output type register							*/
+	uint32_t OSPEEDR;		/*	GPIO port output speed register							*/
+	uint32_t PUPDR;			/*	GPIO port pull-up/pull-down register					*/
+	uint32_t IDR;			/*	GPIO port input data register							*/
+	uint32_t ODR;			/*	GPIO port output data register							*/
+	uint32_t BSRR;			/*	GPIO port bit set/reset register						*/
+	uint32_t LCKR;			/*	GPIO port configuration lock register					*/
+	uint32_t AFR[2];		/*	GPIO alternate function low register - high register	*/
 }GPIO_RgDef_t;
 
-/*
-//TODO Do the same for RCC
-typedef struct
-{
 
-}RCC_RegDef_t;*/
 
-/*  Peripheral Definition (Peripheral base addresses typecasted to xxx_RegDef_t	 */
-
-#define GPIOA           ((GPIO_RgDef_t *)GPIOA_BASEADDR)
-#define GPIOB           ((GPIO_RgDef_t *)GPIOB_BASEADDR)
-#define GPIOC           ((GPIO_RgDef_t *)GPIOC_BASEADDR)
-#define GPIOD           ((GPIO_RgDef_t *)GPIOD_BASEADDR)
-#define GPIOE           ((GPIO_RgDef_t *)GPIOE_BASEADDR)
-#define GPIOF           ((GPIO_RgDef_t *)GPIOF_BASEADDR)
-#define GPIOG           ((GPIO_RgDef_t *)GPIOG_BASEADDR)
-#define GPIOH           ((GPIO_RgDef_t *)GPIOH_BASEADDR)
-#define GPIOI           ((GPIO_RgDef_t *)GPIOI_BASEADDR)
 
 
 
