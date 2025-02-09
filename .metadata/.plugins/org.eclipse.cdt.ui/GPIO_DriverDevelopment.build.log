@@ -1,10 +1,20 @@
-23:48:57 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+21:15:11 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
+arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
+../drivers/src/stm32f407xx_gpio_driver.c:82:6: warning: 'GPIO_Init' defined but not used [-Wunused-function]
+   82 | void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
+      |      ^~~~~~~~~
+arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GPIO_DriverDevelopment.elf
+ 
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
+arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
     652	      0	   1568	   2220	    8ac	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
+Finished building: GPIO_DriverDevelopment.list
+ 
 
-23:48:57 Build Finished. 0 errors, 0 warnings. (took 225ms)
+21:15:11 Build Finished. 0 errors, 1 warnings. (took 460ms)
 
