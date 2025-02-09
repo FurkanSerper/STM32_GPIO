@@ -204,13 +204,13 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Val
 
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t Value)
 {
-	pGPIOx->ODR = Value;
+
 }
 
 
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 {
-	pGPIOx->ODR ^= (1 << PinNumber);
+
 }
 
 

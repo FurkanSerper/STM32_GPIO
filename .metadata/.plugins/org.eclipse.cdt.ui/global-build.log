@@ -1,6 +1,11 @@
-21:15:11 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+14:37:36 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
+../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_WriteToOutputPin':
+../drivers/src/stm32f407xx_gpio_driver.c:193:18: warning: unused variable 'value' [-Wunused-variable]
+  193 |         uint32_t value;
+      |                  ^~~~~
+../drivers/src/stm32f407xx_gpio_driver.c: At top level:
 ../drivers/src/stm32f407xx_gpio_driver.c:82:6: warning: 'GPIO_Init' defined but not used [-Wunused-function]
    82 | void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
       |      ^~~~~~~~~
