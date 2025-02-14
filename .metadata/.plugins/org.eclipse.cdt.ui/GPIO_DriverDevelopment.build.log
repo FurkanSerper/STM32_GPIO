@@ -1,36 +1,19 @@
-17:48:14 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+21:20:37 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
-arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f407xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_spi_driver.d" -MT"drivers/src/stm32f407xx_spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_spi_driver.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_WriteToOutputPin':
-../drivers/src/stm32f407xx_gpio_driver.c:226:18: warning: unused variable 'value' [-Wunused-variable]
-  226 |         uint32_t value;
-      |                  ^~~~~
-../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_IRQInterruptConfig':
-../drivers/src/stm32f407xx_gpio_driver.c:263:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  263 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
-      |                          ~~~~~~~~~~^~~~
-../drivers/src/stm32f407xx_gpio_driver.c:268:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  268 |                 }else if(IRQNumber >= 64 & IRQNumber < 96) //64 to 95
-      |                          ~~~~~~~~~~^~~~~
-../drivers/src/stm32f407xx_gpio_driver.c:282:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  282 |                 }else if(IRQNumber > 31 & IRQNumber < 64)
-      |                          ~~~~~~~~~~^~~~
-../drivers/src/stm32f407xx_gpio_driver.c:286:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  286 |                 }else if(IRQNumber >= 64 & IRQNumber < 96)
-      |                          ~~~~~~~~~~^~~~~
+arm-none-eabi-gcc "../Src/spi_tx_testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/spi_tx_testing.d" -MT"Src/spi_tx_testing.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/spi_tx_testing.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
 arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO_DriverDevelopment.elf
  
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
 arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
-   2788	      0	   1568	   4356	   1104	GPIO_DriverDevelopment.elf
+    660	      0	   1568	   2228	    8b4	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO_DriverDevelopment.list
  
 
-17:48:14 Build Finished. 0 errors, 5 warnings. (took 508ms)
+21:20:38 Build Finished. 0 errors, 0 warnings. (took 1s.249ms)
 
