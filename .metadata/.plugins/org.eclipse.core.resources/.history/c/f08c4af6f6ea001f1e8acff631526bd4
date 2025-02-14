@@ -89,7 +89,6 @@
 #define USART6_BASEADDR			(APB2PERIPH_BASE + 0x1400)
 #define EXTI_BASEADDR			(APB2PERIPH_BASE + 0x3C00)
 #define SYSCFG_BASEADDR			(APB2PERIPH_BASE + 0x3800)
-#define SPI4_BASEADDR			(APB2PERIPH_BASE + 0x3400)
 
 
 
@@ -108,21 +107,6 @@ typedef struct
 	__vo uint32_t AFR[2];		/*	GPIO alternate function low register - high register	*/
 }GPIO_RegDef_t;
 
-
-
-/* SPI Register Definition Structures     */
-typedef struct
-{
-	__vo uint32_t CR1;			/*  SPI control register 1 (SPI_CR1) (not used in I2S mode) 		*/
-	__vo uint32_t CR2;			/*	SPI control register 2 (SPI_CR2)								*/
-	__vo uint32_t SR;			/*	SPI status register (SPI_SR)									*/
-	__vo uint32_t DR;			/*	SPI data register (SPI_DR)										*/
-	__vo uint32_t CRCPR;		/*	SPI CRC polynomial register (SPI_CRCPR) (not used in I2S mode)	*/
-	__vo uint32_t RXCRCR;		/*	SPI RX CRC register (SPI_RXCRCR) (not used in I2S mode)			*/
-	__vo uint32_t TXCRCR;		/*	SPI TX CRC register (SPI_TXCRCR) (not used in I2S mode)			*/
-	__vo uint32_t I2SCFGR;		/*	SPI_I2S configuration register (SPI_I2SCFGR)					*/
-	__vo uint32_t I2SPR;		/*	SPI_I2S prescaler register (SPI_I2SPR)							*/
-}SPI_RegDef_t;
 
 typedef struct
 {
@@ -205,12 +189,6 @@ typedef struct
 #define EXTI			((EXTI_RegDef_t *)EXTI_BASEADDR)
 
 #define SYSCFG			((SYSCFG_RegDef_t *)SYSCFG_BASEADDR)
-
-#define SPI1  			((SPI_RegDef_t*)SPI1_BASEADDR)
-#define SPI2  			((SPI_RegDef_t*)SPI2_BASEADDR)
-#define SPI3  			((SPI_RegDef_t*)SPI3_BASEADDR)
-#define SPI4  			((SPI_RegDef_t*)SPI4_BASEADDR)
-
 
 /*
  * Clock Enable Macros for GPIOx Peripherals

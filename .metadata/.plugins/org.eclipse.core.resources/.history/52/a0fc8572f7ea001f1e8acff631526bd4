@@ -1,0 +1,35 @@
+/*
+ * stm32f407xx_spi_driver.h
+ *
+ *  Created on: Feb 14, 2025
+ *      Author: furkanserper
+ */
+
+#ifndef INC_STM32F407XX_SPI_DRIVER_H_
+#define INC_STM32F407XX_SPI_DRIVER_H_
+#include "stm32f407xx.h"
+
+
+
+// TODO will be updated according to SPI
+typedef struct
+{
+	uint8_t SPI_DeviceMode;
+	uint8_t SPI_BusConfig;			/* Possible values from @SPI //TODO			*/
+	uint8_t SPI_DFF;				/* Possible values from @SPI //TODO				*/
+	uint8_t SPI_CPHA;	/* Possible values from @SPI //TODO		*/
+	uint8_t SPI_CPOL;			/*Possible values from @SPI //TODO 			*/
+	uint8_t SPI_SSM ;
+	uint8_t SPI_Speed;
+
+}SPI_PinConfig_t;
+
+// TODO will be updated according to SPI
+typedef struct
+{
+	SPI_RegDef_t *pGPIOx;  /* This hold the base address of the GPIO port to which their pin belongs */
+	SPI_PinConfig_t GPIO_PinConfig;
+
+}SPI_Handle_t;
+
+#endif /* INC_STM32F407XX_SPI_DRIVER_H_ */
