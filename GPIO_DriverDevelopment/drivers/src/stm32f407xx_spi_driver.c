@@ -53,8 +53,11 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
  */
 void SPI_Init(SPI_Handle_t *pSPIHandle)
 {
-	//first lets configure the SPI_CR1 register
 
+	//Peripheral Clock Enable
+	SPI_PeriClockControl(pSPIHandle->pSPIx, ENABLE);
+
+	//first lets configure the SPI_CR1 register
 	uint32_t tempreg = 0;
 
 	//1. configure the device mode
@@ -64,7 +67,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle)
 	if(pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_FD)
 	{
 		//BIDI mode should be clread (set 0)
-		tempreg &= (1 << SPI_CR1_BIDIMODE);
+		tempreg &= ~(1 << SPI_CR1_BIDIMODE);
 
 	}else if(pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_HD)
 	{
@@ -74,11 +77,19 @@ void SPI_Init(SPI_Handle_t *pSPIHandle)
 	}else if(pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY)
 	{
 		//BIDI mode should be clread (set 0)
-		tempreg &= (1 << SPI_CR1_BIDIMODE);
+		tempreg &= ~(1 << SPI_CR1_BIDIMODE);
 
 		// RXONLY bit must be set
 		tempreg |= (1 << SPI_CR1_RXONLY);
 
+	}
+
+	if(pSPIHandle->SPIConfig.SPI_SSM == SPI_SSM_EN)
+	{
+		tempreg |= (1 << SPI_CR1_SSM);
+	}else if(pSPIHandle->SPIConfig.SPI_SSM == SPI_SSM_DIS)
+	{
+		tempreg &= ~(1 << SPI_CR1_SSM);
 	}
 
 	// 3. Configure the SPI Serial Clock Speed (Baud Rate)
@@ -179,5 +190,34 @@ void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 void SPI_IRQHandling(SPI_Handle_t *pHandleSPI)
 {
 
+
+}
+
+
+/*
+ * Other Peripheral Control APIs
+ */
+void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi)
+{
+	if(EnOrDi == ENABLE)
+	{
+		pSPIx->CR1 |= (1 << SPI_CR1_SPE);
+
+	}else if(EnOrDi == DISABLE)
+	{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SPE);
+	}
+}
+
+SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi)
+{
+	if(EnOrDi == ENABLE)
+	{
+		pSPIx->CR1 |= (1 << SPI_CR1_SSI);
+
+	}else if(EnOrDi == DISABLE)
+	{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SSI);
+	}
 
 }

@@ -1,19 +1,23 @@
-21:20:37 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+12:37:25 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/spi_tx_testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/spi_tx_testing.d" -MT"Src/spi_tx_testing.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/spi_tx_testing.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+In file included from C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h:430,
+                 from ../Src/spi_tx_testing.c:15:
+C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_spi_driver.h:132:1: warning: data definition has no type or storage class
+  132 | SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
+      | ^~~~~~~~~~~~~
+C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_spi_driver.h:132:1: warning: type defaults to 'int' in declaration of 'SPI_SSIConfig' [-Wimplicit-int]
 arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO_DriverDevelopment.elf
  
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
 arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
-    660	      0	   1568	   2228	    8b4	GPIO_DriverDevelopment.elf
+   2840	      0	   1568	   4408	   1138	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO_DriverDevelopment.list
  
 
-21:20:38 Build Finished. 0 errors, 0 warnings. (took 1s.249ms)
+12:37:26 Build Finished. 0 errors, 2 warnings. (took 582ms)
 
