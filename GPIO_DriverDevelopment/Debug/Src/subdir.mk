@@ -6,18 +6,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/spi_tx_testing.c \
-../Src/syscalls.c \
-../Src/sysmem.c 
+../Src/syscalls.c 
 
 OBJS += \
 ./Src/spi_tx_testing.o \
-./Src/syscalls.o \
-./Src/sysmem.o 
+./Src/syscalls.o 
 
 C_DEPS += \
 ./Src/spi_tx_testing.d \
-./Src/syscalls.d \
-./Src/sysmem.d 
+./Src/syscalls.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +24,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/spi_tx_testing.cyclo ./Src/spi_tx_testing.d ./Src/spi_tx_testing.o ./Src/spi_tx_testing.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/spi_tx_testing.cyclo ./Src/spi_tx_testing.d ./Src/spi_tx_testing.o ./Src/spi_tx_testing.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su
 
 .PHONY: clean-Src
 

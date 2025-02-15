@@ -1,19 +1,45 @@
-12:37:25 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+15:38:19 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
+arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f407xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_spi_driver.d" -MT"drivers/src/stm32f407xx_spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_spi_driver.o"
 arm-none-eabi-gcc "../Src/spi_tx_testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/spi_tx_testing.d" -MT"Src/spi_tx_testing.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/spi_tx_testing.o"
-In file included from C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h:430,
-                 from ../Src/spi_tx_testing.c:15:
-C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_spi_driver.h:132:1: warning: data definition has no type or storage class
-  132 | SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
-      | ^~~~~~~~~~~~~
-C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_spi_driver.h:132:1: warning: type defaults to 'int' in declaration of 'SPI_SSIConfig' [-Wimplicit-int]
+../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_WriteToOutputPin':
+../drivers/src/stm32f407xx_gpio_driver.c:229:18: warning: unused variable 'value' [-Wunused-variable]
+  229 |         uint32_t value;
+      |                  ^~~~~
+../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_IRQInterruptConfig':
+../drivers/src/stm32f407xx_gpio_driver.c:266:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  266 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_gpio_driver.c:271:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  271 |                 }else if(IRQNumber >= 64 & IRQNumber < 96) //64 to 95
+      |                          ~~~~~~~~~~^~~~~
+../drivers/src/stm32f407xx_gpio_driver.c:285:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  285 |                 }else if(IRQNumber > 31 & IRQNumber < 64)
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_gpio_driver.c:289:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  289 |                 }else if(IRQNumber >= 64 & IRQNumber < 96)
+      |                          ~~~~~~~~~~^~~~~
+../drivers/src/stm32f407xx_spi_driver.c: In function 'SPI_IRQInterruptConfig':
+../drivers/src/stm32f407xx_spi_driver.c:234:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  234 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_spi_driver.c:239:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  239 |                 }else if(IRQNumber >= 64 & IRQNumber < 96) //64 to 95
+      |                          ~~~~~~~~~~^~~~~
+../drivers/src/stm32f407xx_spi_driver.c:253:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  253 |                 }else if(IRQNumber > 31 & IRQNumber < 64)
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_spi_driver.c:257:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  257 |                 }else if(IRQNumber >= 64 & IRQNumber < 96)
+      |                          ~~~~~~~~~~^~~~~
 arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO_DriverDevelopment.elf
  
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
 arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
-   2840	      0	   1568	   4408	   1138	GPIO_DriverDevelopment.elf
+   2864	      0	   1568	   4432	   1150	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO_DriverDevelopment.list

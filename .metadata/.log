@@ -128,3 +128,6 @@ org.eclipse.core.runtime.CoreException: Setup exceptions
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2025-02-15 11:24:36.097
 !MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-15 14:57:45.237
+!MESSAGE Indexed 'GPIO_DriverDevelopment' (4 sources, 61 headers) in 0.201 sec: 2,533 declarations; 4,385 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
