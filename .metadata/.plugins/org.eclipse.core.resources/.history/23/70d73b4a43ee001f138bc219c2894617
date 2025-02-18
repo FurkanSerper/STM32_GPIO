@@ -245,10 +245,9 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t
 	if(Len == 1)
 	{
 		//Disable Acking
-		I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
+		I2C_ManageAcking();
+		pI2CHandle->pI2Cx->CR1 &= ~(1 << I2C_CR1_ACK);
 
-		//generate STOP condigiton
-		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 
 		//Clear the ADDR flag
 		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
@@ -257,8 +256,13 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t
 		//wait until RXNE becomes 1
 		while(! (I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_RXNE))); //wait till TXE is set
 
+
+
+		//generate STOP condigiton
+		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
+
+
 		//read data in to buffer
-		*pRxBuffer = pI2CHandle->pI2Cx->DR;
 
 		return;
 
@@ -268,41 +272,29 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t
 	//Procedure to read data from slave when Len > 1
 	if(Len > 1)
 	{
-		//Clear the ADDR Flag
-		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
+		//Clear the ADDR Flah
 
 		//read the data until Len becomes zero
 		for(uint32_t i = Len; i>0; i--)
 		{
-			//Wait until RXNE becomes 1
-			while(! (I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_RXNE))); //wait till TXE is set
+			//Wait until TXNE becomes 1
 
 
 			if(i == 2 ) // if last 2 bytes are remaining
 			{
 
-				//Disable the ack bit
-				I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
+				//Clear the ack bit
 
 				//generate Stop condition
-				I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-
 
 			}
 
 			//read the data from data register in to buffer
-			*pRxBuffer = pI2CHandle->pI2Cx->DR;
 
 
 			//increment the buffer address
 			pRxBuffer++;
 		}
-	}
-
-	// Re-enable ACKing
-	if((pI2CHandle->I2C_Config.I2C_ACKControl) == I2C_ACK_ENABLE)
-	{
-		I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_ENABLE);
 	}
 
 }
@@ -383,7 +375,7 @@ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi)
 
 
 
-void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi)
+void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 {
 	if(EnorDi == I2C_ACK_ENABLE)
 	{

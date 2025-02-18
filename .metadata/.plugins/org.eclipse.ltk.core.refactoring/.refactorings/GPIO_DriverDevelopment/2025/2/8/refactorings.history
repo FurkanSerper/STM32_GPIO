@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GPIO_DriverDevelopment/Src/i2c_exercise.c&apos; to &apos;i2c_transmit_exercise.c&apos;" description="Rename resource &apos;i2c_exercise.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/i2c_exercise.c" name="i2c_transmit_exercise.c" stamp="1739916393382" updateReferences="true"/>
+</session>
