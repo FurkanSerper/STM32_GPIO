@@ -5,15 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/spi_tx_testing.c \
+../Src/i2c_exercise.c \
 ../Src/syscalls.c 
 
 OBJS += \
-./Src/spi_tx_testing.o \
+./Src/i2c_exercise.o \
 ./Src/syscalls.o 
 
 C_DEPS += \
-./Src/spi_tx_testing.d \
+./Src/i2c_exercise.d \
 ./Src/syscalls.d 
 
 
@@ -24,7 +24,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/spi_tx_testing.cyclo ./Src/spi_tx_testing.d ./Src/spi_tx_testing.o ./Src/spi_tx_testing.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su
+	-$(RM) ./Src/i2c_exercise.cyclo ./Src/i2c_exercise.d ./Src/i2c_exercise.o ./Src/i2c_exercise.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su
 
 .PHONY: clean-Src
 

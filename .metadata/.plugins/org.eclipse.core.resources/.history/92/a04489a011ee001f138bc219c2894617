@@ -1,0 +1,17 @@
+/*
+ * i2c_exercise.c
+ *
+ *  Created on: Feb 18, 2025
+ *      Author: furkanserper
+ */
+
+#include "stm32f407xx.h"
+#include "string.h"
+
+
+
+int main(void)
+{
+
+	return 0;
+}
