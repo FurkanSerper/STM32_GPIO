@@ -57,8 +57,8 @@ uint32_t RCC_GetPLLOutputClock(void);
 #define I2C_FM_DUTY_2			0
 #define I2C_FM_DUTY_16_9		1
 
-#define I2C_ENABLE_SR				RESET
-#define I2C_DISABLE_SR					SET
+#define I2C_NO_SR				RESET
+#define I2C_SR					SET
 /*
  * I2C related status Flags definitions
  */
@@ -88,7 +88,7 @@ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
  * Data Send and Receive
  */
 void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
-void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Len, uint8_t SlaveAddr, uint8_t Sr);
+void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Len, uint8_t SlaveAddr);
 
 void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 

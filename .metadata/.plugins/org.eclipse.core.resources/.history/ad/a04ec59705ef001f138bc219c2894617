@@ -57,8 +57,8 @@ uint32_t RCC_GetPLLOutputClock(void);
 #define I2C_FM_DUTY_2			0
 #define I2C_FM_DUTY_16_9		1
 
-#define I2C_ENABLE_SR				RESET
-#define I2C_DISABLE_SR					SET
+#define I2C_NO_SR				RESET
+#define I2C_SR					SET
 /*
  * I2C related status Flags definitions
  */
