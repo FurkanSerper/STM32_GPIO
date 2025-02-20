@@ -1,21 +1,30 @@
-22:24:38 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+14:14:50 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
-arm-none-eabi-gcc "../drivers/src/stm32f407xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_i2c_driver.d" -MT"drivers/src/stm32f407xx_i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_i2c_driver.o"
-In file included from ../drivers/src/stm32f407xx_i2c_driver.c:8:
-C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_i2c_driver.h:45:1: warning: no semicolon at end of struct or union
-   45 | }I2C_Handle_t;
-      | ^
+arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
+../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_IRQInterruptConfig':
+../drivers/src/stm32f407xx_gpio_driver.c:265:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  265 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_gpio_driver.c:270:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  270 |                 }else if(IRQNumber >= 64 & IRQNumber < 96) //64 to 95
+      |                          ~~~~~~~~~~^~~~~
+../drivers/src/stm32f407xx_gpio_driver.c:284:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  284 |                 }else if(IRQNumber > 31 & IRQNumber < 64)
+      |                          ~~~~~~~~~~^~~~
+../drivers/src/stm32f407xx_gpio_driver.c:288:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  288 |                 }else if(IRQNumber >= 64 & IRQNumber < 96)
+      |                          ~~~~~~~~~~^~~~~
 arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO_DriverDevelopment.elf
  
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
 arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
-   3980	     32	   1640	   5652	   1614	GPIO_DriverDevelopment.elf
+   4048	     32	   1640	   5720	   1658	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO_DriverDevelopment.list
  
 
-22:24:39 Build Finished. 0 errors, 1 warnings. (took 569ms)
+14:14:50 Build Finished. 0 errors, 4 warnings. (took 456ms)
 

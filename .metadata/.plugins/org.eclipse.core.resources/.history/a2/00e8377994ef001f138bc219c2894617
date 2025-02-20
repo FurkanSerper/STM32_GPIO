@@ -16,10 +16,6 @@ static void I2C_ExecuteAddressPhaseRead(I2C_RegDef_t *pI2Cx,uint8_t SlaveAddr);
 static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle);
 static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
 
-static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
-static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
-
-
 
 static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx)
 {
@@ -233,17 +229,6 @@ void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle)
 
 void I2C_CloseSendData(I2C_Handle_t *pI2CHandle)
 {
-	// Implement the code to disable ITBUFEN control bit
-	pI2CHandle->pI2Cx->CR2 &= ~(1 << I2C_CR2_ITBUFEN);
-
-	//Implement the code to disable ITEVFEN control bit
-	pI2CHandle->pI2Cx->CR2 &= ~(1 << I2C_CR2_ITEVTEN);
-
-	pI2CHandle->TxRxState = I2C_READY;
-	pI2CHandle->pTxBuffer = NULL;
-	pI2CHandle->TxLen = 0;
-
-
 
 }
 
@@ -457,7 +442,7 @@ uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, ui
 	return busystate;
 }
 
-static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle)
+void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle)
 {
 	if(pI2CHandle->TxLen > 0)
 	{
@@ -474,7 +459,7 @@ static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle)
 }
 
 
-static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle)
+void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle)
 {
 	//We have to do the data reception
 	if(pI2CHandle->RxLen == 1)
@@ -508,7 +493,7 @@ static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle)
 		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 
 		//2. Close the I2C rx
-		I2C_CloseReceiveData(pI2CHandle);
+		I2C_CloseReceiveData();
 
 		//3. Notify the application
 		I2C_ApplicationEventCallback(pI2CHandle,I2C_EV_RX_CMPLT);
@@ -579,7 +564,7 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle)
 					}
 
 					//2. reset all the member elements of the handle structure.
-					I2C_CloseSendData(pI2CHandle);
+					I2C_CloseSendData();
 
 					//3. Notify the application about transmission complete
 					I2C_ApplicationEventCallback(pI2CHandle,I2C_EV_TX_CMPLT);

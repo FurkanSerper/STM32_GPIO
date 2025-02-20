@@ -39,7 +39,7 @@ typedef struct
 	uint8_t TxRxState;			/* To store Communication State   */
 	uint8_t DevAddr;			/* To store Slave/Device Address   */
 	uint32_t RxSize;			/* To store Rx Size  */
-	uint8_t Sr;					/* To store repeated start value  */
+	uint8_t Sr					/* To store repeated start value  */
 
 
 }I2C_Handle_t;
@@ -122,7 +122,7 @@ void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
 
 
 void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle);
-void I2C_CloseSendData(I2C_Handle_t *pI2CHandle);
+void I2C_CloseSendData(I2C_Handle_t *pI2CHandle)
 
 
 /*
