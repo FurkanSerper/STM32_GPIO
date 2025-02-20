@@ -1,55 +1,21 @@
-21:09:21 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+22:24:38 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
-arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
 arm-none-eabi-gcc "../drivers/src/stm32f407xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_i2c_driver.d" -MT"drivers/src/stm32f407xx_i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_i2c_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f407xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_spi_driver.d" -MT"drivers/src/stm32f407xx_spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_spi_driver.o"
-arm-none-eabi-gcc "../Src/I2C_receive_exercise.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_receive_exercise.d" -MT"Src/I2C_receive_exercise.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_receive_exercise.o"
-../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_WriteToOutputPin':
-../drivers/src/stm32f407xx_gpio_driver.c:229:18: warning: unused variable 'value' [-Wunused-variable]
-  229 |         uint32_t value;
-      |                  ^~~~~
-../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_IRQInterruptConfig':
-../drivers/src/stm32f407xx_gpio_driver.c:266:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  266 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
-      |                          ~~~~~~~~~~^~~~
-../drivers/src/stm32f407xx_gpio_driver.c:271:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  271 |                 }else if(IRQNumber >= 64 & IRQNumber < 96) //64 to 95
-      |                          ~~~~~~~~~~^~~~~
-../drivers/src/stm32f407xx_gpio_driver.c:285:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  285 |                 }else if(IRQNumber > 31 & IRQNumber < 64)
-      |                          ~~~~~~~~~~^~~~
-../drivers/src/stm32f407xx_gpio_driver.c:289:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-  289 |                 }else if(IRQNumber >= 64 & IRQNumber < 96)
-      |                          ~~~~~~~~~~^~~~~
-../drivers/src/stm32f407xx_spi_driver.c: In function 'spi_ovr_interrupt_handle':
-../drivers/src/stm32f407xx_spi_driver.c:449:23: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
-  449 |         uint8_t temp1,temp2;
-      |                       ^~~~~
-../drivers/src/stm32f407xx_spi_driver.c:449:17: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
-  449 |         uint8_t temp1,temp2;
-      |                 ^~~~~
-../Src/I2C_receive_exercise.c: In function 'main':
-../Src/I2C_receive_exercise.c:153:52: warning: passing argument 2 of 'I2C_MasterReceiveData' from incompatible pointer type [-Wincompatible-pointer-types]
-  153 |                 I2C_MasterReceiveData(&I2C1Handle, &rcv_buf, len, SLAVE_ADDRESS, I2C_DISABLE_SR);
-      |                                                    ^~~~~~~~
-      |                                                    |
-      |                                                    uint8_t (*)[32] {aka unsigned char (*)[32]}
-In file included from C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h:529,
-                 from ../Src/I2C_receive_exercise.c:27:
-C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_i2c_driver.h:91:63: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[32]' {aka 'unsigned char (*)[32]'}
-   91 | void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Len, uint8_t SlaveAddr, uint8_t Sr);
-      |                                                      ~~~~~~~~~^~~~~~~~~
+In file included from ../drivers/src/stm32f407xx_i2c_driver.c:8:
+C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_i2c_driver.h:45:1: warning: no semicolon at end of struct or union
+   45 | }I2C_Handle_t;
+      | ^
 arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO_DriverDevelopment.elf
  
 arm-none-eabi-size  GPIO_DriverDevelopment.elf 
 arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
    text	   data	    bss	    dec	    hex	filename
-   3980	     32	   1608	   5620	   15f4	GPIO_DriverDevelopment.elf
+   3980	     32	   1640	   5652	   1614	GPIO_DriverDevelopment.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO_DriverDevelopment.list
  
 
-21:09:22 Build Finished. 0 errors, 8 warnings. (took 567ms)
+22:24:39 Build Finished. 0 errors, 1 warnings. (took 569ms)
 
