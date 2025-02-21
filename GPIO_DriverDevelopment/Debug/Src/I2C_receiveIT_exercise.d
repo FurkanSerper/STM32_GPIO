@@ -1,4 +1,4 @@
-Src/I2C_receive_exercise.o: ../Src/I2C_receive_exercise.c \
+Src/I2C_receiveIT_exercise.o: ../Src/I2C_receiveIT_exercise.c \
  C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h \
  C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_gpio_driver.h \
  C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h \

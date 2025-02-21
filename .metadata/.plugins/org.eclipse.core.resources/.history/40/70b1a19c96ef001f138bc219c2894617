@@ -14,6 +14,7 @@ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx);
 static void I2C_ExecuteAddressPhaseWrite(I2C_RegDef_t *pI2Cx,uint8_t SlaveAddr);
 static void I2C_ExecuteAddressPhaseRead(I2C_RegDef_t *pI2Cx,uint8_t SlaveAddr);
 static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle);
+static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
 
 static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
 static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
@@ -83,7 +84,7 @@ static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle)
 
 }
 
-void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx)
+static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx)
 {
 	pI2Cx->CR1 |= (1 << I2C_CR1_STOP);
 
@@ -473,22 +474,6 @@ static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle)
 }
 
 
-void I2C_SlaveSendData(I2C_RegDef_t *pI2C, uint8_t data)
-{
-	pI2C->DR = data;
-
-}
-
-
-
-uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2C)
-{
-	return (uint8_t)pI2C->DR;
-
-}
-
-
-
 static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle)
 {
 	//We have to do the data reception
@@ -639,16 +624,6 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle)
 			{
 				I2C_MasterHandleTXEInterrupt(pI2CHandle);
 			}
-		}else
-		{
-			//slave    it means master is requesting data
-			//Make sure that the slave is in transmitter mode
-			if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
-
-				// Slave is in transmitter mode
-				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_REQ);
-			}
-
 		}
 	}
 
@@ -667,17 +642,6 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle)
 			{
 				I2C_MasterHandleRXNEInterrupt(pI2CHandle);
 			}
-		}else
-		{
-			//slave
-			//Make sure that the slave is in receiver mode
-			if(! (pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA))){
-
-				// Slave is in receiver mode
-				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_RCV);
-			}
-
-
 		}
 	}
 }
@@ -711,11 +675,9 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle)
 		//This is arbitration lost error
 
 		//Implement the code to clear the arbitration lost error flag
-		pI2CHandle->pI2Cx->SR1 &= ~( 1 << I2C_SR1_ARLO);
-
 
 		//Implement the code to notify the application about the error
-		   I2C_ApplicationEventCallback(pI2CHandle,I2C_ERROR_ARLO);
+
 	}
 
 /***********************Check for ACK failure  error************************************/
@@ -726,12 +688,8 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle)
 		//This is ACK failure error
 
 	    //Implement the code to clear the ACK failure error flag
-		pI2CHandle->pI2Cx->SR1 &= ~( 1 << I2C_SR1_AF);
-
 
 		//Implement the code to notify the application about the error
-		   I2C_ApplicationEventCallback(pI2CHandle,I2C_ERROR_AF);
-
 	}
 
 /***********************Check for Overrun/underrun error************************************/
@@ -741,12 +699,8 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle)
 		//This is Overrun/underrun
 
 	    //Implement the code to clear the Overrun/underrun error flag
-		pI2CHandle->pI2Cx->SR1 &= ~( 1 << I2C_SR1_OVR);
-
 
 		//Implement the code to notify the application about the error
-		   I2C_ApplicationEventCallback(pI2CHandle,I2C_ERROR_OVR);
-
 	}
 
 /***********************Check for Time out error************************************/
@@ -756,12 +710,8 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle)
 		//This is Time out error
 
 	    //Implement the code to clear the Time out error flag
-		pI2CHandle->pI2Cx->SR1 &= ~( 1 << I2C_SR1_TIMEOUT);
-
 
 		//Implement the code to notify the application about the error
-		   I2C_ApplicationEventCallback(pI2CHandle,I2C_ERROR_TIMEOUT);
-
 	}
 
 }
@@ -922,11 +872,6 @@ uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName)
 	return FLAG_RESET;
 }
 
-
-__attribute__((weak)) void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle,uint8_t AppEvent)
-{
-
-}
 
 
 

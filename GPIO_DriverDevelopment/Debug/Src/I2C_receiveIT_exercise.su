@@ -1,0 +1,8 @@
+../Src/I2C_receiveIT_exercise.c:43:6:delay	16	static
+../Src/I2C_receiveIT_exercise.c:55:6:I2C1_GPIOInits	24	static
+../Src/I2C_receiveIT_exercise.c:76:6:I2C1_Inits	8	static
+../Src/I2C_receiveIT_exercise.c:89:7:GPIO_ButtonInit	32	static
+../Src/I2C_receiveIT_exercise.c:115:5:main	24	static
+../Src/I2C_receiveIT_exercise.c:169:6:I2C1_EV_IRQHandler	8	static
+../Src/I2C_receiveIT_exercise.c:175:6:I2C1_ER_IRQHandler	8	static
+../Src/I2C_receiveIT_exercise.c:180:6:I2C_ApplicationEventCallback	16	static

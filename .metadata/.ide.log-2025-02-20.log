@@ -1,0 +1,31 @@
+2025-02-20 14:37:06,751 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-02-20 14:37:08,842 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-02-20 14:51:27,506 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-02-20 14:51:29,562 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-02-20 14:51:38,491 [ERROR] AdobePublisher:187 - Exception while getting the server answer: java.net.SocketTimeoutException: Read timed out
+2025-02-20 14:53:27,674 [INFO] WebApp:190 - Connection lost
+2025-02-20 14:54:28,015 [INFO] WebApp:187 - Connection restablished
+2025-02-20 14:54:31,347 [INFO] WebApp:190 - Connection lost
+2025-02-20 14:54:31,678 [INFO] WebApp:187 - Connection restablished
+2025-02-20 15:14:56,237 [INFO] WebApp:190 - Connection lost
+2025-02-20 15:14:56,950 [INFO] WebApp:187 - Connection restablished
+2025-02-20 15:16:14,411 [INFO] WebApp:190 - Connection lost
+2025-02-20 15:16:17,187 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:21:46,410 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:22:29,158 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:22:33,179 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:22:33,812 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:22:35,247 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:22:36,124 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:22:36,340 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:22:36,540 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:24:16,855 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:24:17,032 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:24:17,892 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:24:18,028 [INFO] WebApp:187 - Connection restablished
+2025-02-20 16:24:25,834 [INFO] WebApp:190 - Connection lost
+2025-02-20 16:24:25,947 [INFO] WebApp:187 - Connection restablished
+2025-02-20 22:36:18,430 [INFO] WebApp:190 - Connection lost
+2025-02-20 22:36:18,877 [INFO] WebApp:187 - Connection restablished
+2025-02-20 22:36:20,864 [INFO] WebApp:190 - Connection lost
+2025-02-20 22:36:21,048 [INFO] WebApp:187 - Connection restablished

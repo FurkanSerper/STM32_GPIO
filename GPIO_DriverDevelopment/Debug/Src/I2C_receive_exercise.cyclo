@@ -1,5 +1,0 @@
-../Src/I2C_receive_exercise.c:43:6:delay	2
-../Src/I2C_receive_exercise.c:55:6:I2C1_GPIOInits	1
-../Src/I2C_receive_exercise.c:76:6:I2C1_Inits	1
-../Src/I2C_receive_exercise.c:89:7:GPIO_ButtonInit	1
-../Src/I2C_receive_exercise.c:115:5:main	2
