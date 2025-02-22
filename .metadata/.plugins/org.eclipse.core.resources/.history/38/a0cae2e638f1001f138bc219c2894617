@@ -1,0 +1,43 @@
+/*
+ * stm32f407xx_usart_driver.c
+ *
+ *  Created on: Feb 22, 2025
+ *      Author: furkanserper
+ */
+
+#include "stm32f407xx_usart_driver.h"
+
+void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
+{
+
+}
+
+
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
+{
+
+}
+
+
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx, uint8_t StatusFlagName)
+{
+
+}
+
+
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName)
+{
+
+}
+
+
+void USART_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
+{
+
+}
+
+
+void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
+{
+
+}

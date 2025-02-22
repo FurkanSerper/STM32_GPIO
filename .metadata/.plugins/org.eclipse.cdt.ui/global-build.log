@@ -1,9 +1,15 @@
-21:25:59 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
+16:46:10 **** Incremental Build of configuration Debug for project GPIO_DriverDevelopment ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/src/stm32f407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_gpio_driver.d" -MT"drivers/src/stm32f407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_gpio_driver.o"
 arm-none-eabi-gcc "../drivers/src/stm32f407xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_i2c_driver.d" -MT"drivers/src/stm32f407xx_i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_i2c_driver.o"
 arm-none-eabi-gcc "../drivers/src/stm32f407xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_spi_driver.d" -MT"drivers/src/stm32f407xx_spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_spi_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f407xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/src/stm32f407xx_usart_driver.d" -MT"drivers/src/stm32f407xx_usart_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/src/stm32f407xx_usart_driver.o"
 arm-none-eabi-gcc "../Src/I2C_receiveIT_exercise.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I"C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_receiveIT_exercise.d" -MT"Src/I2C_receiveIT_exercise.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_receiveIT_exercise.o"
+../drivers/src/stm32f407xx_usart_driver.c: In function 'USART_GetFlagStatus':
+../drivers/src/stm32f407xx_usart_driver.c:107:26: error: 'FlagName' undeclared (first use in this function)
+  107 |         if(pUSARTx->SR & FlagName)
+      |                          ^~~~~~~~
+../drivers/src/stm32f407xx_usart_driver.c:107:26: note: each undeclared identifier is reported only once for each function it appears in
 ../drivers/src/stm32f407xx_gpio_driver.c: In function 'GPIO_IRQInterruptConfig':
 ../drivers/src/stm32f407xx_gpio_driver.c:265:36: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
   265 |                 }else if(IRQNumber > 31 & IRQNumber < 64) //32 to 63
@@ -24,13 +30,15 @@ arm-none-eabi-gcc "../Src/I2C_receiveIT_exercise.c" -mcpu=cortex-m4 -std=gnu11 -
 ../drivers/src/stm32f407xx_spi_driver.c:449:17: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
   449 |         uint8_t temp1,temp2;
       |                 ^~~~~
+make: *** [drivers/src/subdir.mk:28: drivers/src/stm32f407xx_usart_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
 ../Src/I2C_receiveIT_exercise.c: In function 'main':
 ../Src/I2C_receiveIT_exercise.c:159:60: warning: passing argument 2 of 'I2C_MasterReceiveDataIT' from incompatible pointer type [-Wincompatible-pointer-types]
   159 |                 while(I2C_MasterReceiveDataIT(&I2C1Handle, &rcv_buf, len, SLAVE_ADDRESS, I2C_DISABLE_SR) != I2C_READY);
       |                                                            ^~~~~~~~
       |                                                            |
       |                                                            uint8_t (*)[32] {aka unsigned char (*)[32]}
-In file included from C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h:529,
+In file included from C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx.h:630,
                  from ../Src/I2C_receiveIT_exercise.c:27:
 C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/drivers/inc/stm32f407xx_i2c_driver.h:122:68: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[32]' {aka 'unsigned char (*)[32]'}
   122 | uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Len, uint8_t SlaveAddr, uint8_t Sr);
@@ -40,14 +48,4 @@ C:/LowLevelDriverDevelopment/Workspace_LLDD/STM32_GPIO/GPIO_DriverDevelopment/dr
   177 |         I2C_ER_IRQHandling(&I2C1Handle);
       |         ^~~~~~~~~~~~~~~~~~
       |         I2C_ER_IRQHangling
-arm-none-eabi-gcc -o "GPIO_DriverDevelopment.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\LowLevelDriverDevelopment\Workspace_LLDD\STM32_GPIO\GPIO_DriverDevelopment\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO_DriverDevelopment.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GPIO_DriverDevelopment.elf
- 
-arm-none-eabi-size  GPIO_DriverDevelopment.elf 
-arm-none-eabi-objdump -h -S GPIO_DriverDevelopment.elf  > "GPIO_DriverDevelopment.list"
-   text	   data	    bss	    dec	    hex	filename
-   8008	    124	   1972	  10104	   2778	GPIO_DriverDevelopment.elf
-Finished building: default.size.stdout
- 
-Finished building: GPIO_DriverDevelopment.list
- 
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
