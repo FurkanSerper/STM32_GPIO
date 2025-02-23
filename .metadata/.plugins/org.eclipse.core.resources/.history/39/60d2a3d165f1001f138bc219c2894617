@@ -30,7 +30,7 @@ typedef struct
 typedef struct
 {
 	USART_RegDef_t *pUSARTx;  		/* This hold the base address of the USARTx  peripheral	 */
-	USART_Config_t USART_Config; 	/*   */
+	USART_Config_t USARTConfig; 	/*   */
 }USART_Handle_t;
 
 /*

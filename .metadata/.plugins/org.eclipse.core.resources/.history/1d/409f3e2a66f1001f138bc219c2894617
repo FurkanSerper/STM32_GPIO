@@ -114,10 +114,10 @@ void USART_Init(USART_Handle_t *pUSARTHandle)
 	tempreg=0;
 
 	//Implement the code to configure the number of stop bits inserted during USART frame transmission
-	tempreg |= pUSARTHandle->USART_Config.USART_NoOfStopBits << USART_CR2_STOP;
+	tempreg |= pUSARTHandle->USART_Config. << TODO;
 
 	//Program the CR2 register
-	pUSARTHandle->pUSARTx->CR2 = tempreg;
+	pUSARTHandle->pUSARTx->TODO = tempreg;
 
 	/******************************** Configuration of CR3******************************************/
 
@@ -127,23 +127,22 @@ void USART_Init(USART_Handle_t *pUSARTHandle)
 	if ( pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS)
 	{
 		//Implement the code to enable CTS flow control
-		tempreg |= ( 1 << USART_CR3_CTSE);
+		tempreg |= ( 1 << TODO);
 
 
 	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_RTS)
 	{
 		//Implement the code to enable RTS flow control
-		tempreg |= USART_CR3_RTSE;
+		tempreg |= TODO
 
 	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS_RTS)
 	{
 		//Implement the code to enable both CTS and RTS Flow control
-		tempreg |= USART_CR3_RTSE;
-		tempreg |= USART_CR3_CTSE;
+		TODO
 	}
 
 
-	pUSARTHandle->pUSARTx->CR3 = tempreg;
+	pUSARTHandle->pUSARTx->TODO = tempreg;
 
 	/******************************** Configuration of BRR(Baudrate register)******************************************/
 

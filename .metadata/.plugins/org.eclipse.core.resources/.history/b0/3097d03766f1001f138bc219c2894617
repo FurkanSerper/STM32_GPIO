@@ -127,7 +127,7 @@ void USART_Init(USART_Handle_t *pUSARTHandle)
 	if ( pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS)
 	{
 		//Implement the code to enable CTS flow control
-		tempreg |= ( 1 << USART_CR3_CTSE);
+		tempreg |= ( 1 << TODO);
 
 
 	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_RTS)

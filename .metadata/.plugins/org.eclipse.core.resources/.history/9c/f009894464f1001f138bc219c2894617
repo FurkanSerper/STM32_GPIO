@@ -16,8 +16,8 @@
  */
 typedef struct
 {
-	uint8_t USART_Mode;							/* Possible values from @USART_MODE //TODO				*/
-	uint32_t USART_Baud;						/* Possible values from @USART_Baud //TODO				*/
+	uint8_t USART_Mode;
+	uint32_t USART_Baud;							/* Possible values from @USART //TODO				*/
 	uint8_t USART_NoOfStopBits;
 	uint8_t USART_WordLength;					/* Possible values from @USART //TODO				*/
 	uint8_t USART_ParityControl;				/* Possible values from @USART //TODO 			*/
@@ -30,7 +30,7 @@ typedef struct
 typedef struct
 {
 	USART_RegDef_t *pUSARTx;  		/* This hold the base address of the USARTx  peripheral	 */
-	USART_Config_t USART_Config; 	/*   */
+	USART_Config_t USARTConfig; 	/*   */
 }USART_Handle_t;
 
 /*
@@ -46,7 +46,7 @@ typedef struct
  *Possible options for USART_Baud
  */
 #define USART_STD_BAUD_1200					1200
-#define USART_STD_BAUD_2400					2400
+#define USART_STD_BAUD_2400					400
 #define USART_STD_BAUD_9600					9600
 #define USART_STD_BAUD_19200 				19200
 #define USART_STD_BAUD_38400 				38400
