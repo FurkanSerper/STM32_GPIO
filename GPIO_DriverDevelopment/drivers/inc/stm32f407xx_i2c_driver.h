@@ -58,8 +58,7 @@ typedef struct
 #define I2C_ACK_ENABLE			1
 #define I2C_ACK_DISABLE			0
 
-uint32_t RCC_GetPCLK1Value(void);
-uint32_t RCC_GetPLLOutputClock(void);
+
 /*
  *@I2C_FMDutyCycle
  */

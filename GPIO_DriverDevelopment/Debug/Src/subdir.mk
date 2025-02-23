@@ -5,15 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/I2C_receiveIT_exercise.c \
+../Src/UART_TX.c \
 ../Src/syscalls.c 
 
 OBJS += \
-./Src/I2C_receiveIT_exercise.o \
+./Src/UART_TX.o \
 ./Src/syscalls.o 
 
 C_DEPS += \
-./Src/I2C_receiveIT_exercise.d \
+./Src/UART_TX.d \
 ./Src/syscalls.d 
 
 
@@ -24,7 +24,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/I2C_receiveIT_exercise.cyclo ./Src/I2C_receiveIT_exercise.d ./Src/I2C_receiveIT_exercise.o ./Src/I2C_receiveIT_exercise.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su
+	-$(RM) ./Src/UART_TX.cyclo ./Src/UART_TX.d ./Src/UART_TX.o ./Src/UART_TX.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su
 
 .PHONY: clean-Src
 
